@@ -18,6 +18,40 @@
           </field>
       </record>
 
+        <record id="view_form_professeur" model="ir.ui.view">
+            <field name="name">Formulaire professeur</field>
+            <field name="model">ecole.professeur</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+
+                        <field name="f_name"/>
+                        <field name="l_name"/>
+                        <field name="sex" widget="radio"/>
+                        <field name="cni"/>
+                        <field name="departement_id"/>
+                        <field name="address"/>
+                        <field name="naissance"/>
+                        <field name="start_date"/>
+                        <field name="email"/>
+                        <field name="phone"/>
+                    </group>
+                    <notebook>
+                        <page string="Liste des classes tenues">
+                            <group>
+                                <field name="classe_ids"/>
+                            </group>
+                        </page>
+                        <page string="Liste des Cours dispensés">
+                            <group>
+                                <field name="cours_ids"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
         <record id="vue_aclendat_professeur" model="ir.ui.view">
             <field name="name">Vue Calendrier</field>
             <field name="model">ecole.professeur</field>

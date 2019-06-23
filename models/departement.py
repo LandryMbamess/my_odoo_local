@@ -10,3 +10,8 @@ class DepartementModel(models.Model):
     name = fields.Char("Nom")
     code = fields.Char("Code")
 
+    professeur_ids = fields.One2many(comodel_name="ecole.professeur", inverse_name="departement_id",
+                                     string="Professeurs", )
+    cours_ids = fields.One2many(comodel_name="ecole.professeur", inverse_name="departement_id", string="Cours",)
+
+

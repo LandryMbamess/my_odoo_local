@@ -28,7 +28,7 @@
             </field>
         </record>
 
-        <!--<record id="view_form_etudiant" model="ir.ui.view">
+        <record id="view_form_etudiant" model="ir.ui.view">
             <field name="name">Formulaire etudiant</field>
             <field name="model">ecole.etudiant</field>
             <field name="arch" type="xml">
@@ -39,6 +39,8 @@
                         <field name="l_name"/>
                         <field name="sex" widget="radio"/>
                         <field name="cni"/>
+                        <field name="departement_id"/>
+                        <field name="classe_id"/>
                         <field name="address"/>
                         <field name="naissance"/>
                         <field name="inscription"/>
@@ -48,7 +50,6 @@
                 </form>
             </field>
         </record>
--->
         <record id="action_view_edutiant" model="ir.actions.act_window">
             <field name="name">Fenêtre Etudiant</field>
             <field name="type">ir.actions.act_window</field>

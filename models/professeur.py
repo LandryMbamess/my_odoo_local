@@ -19,3 +19,8 @@ class ProfesseurModel(models.Model):
     email = fields.Char()
     phone = fields.Char()
 
+    departement_id = fields.Many2one(comodel_name="ecole.departement", string="Departement", )
+    classe_ids = fields.Many2many(comodel_name="ecole.classe",)
+    cours_ids = fields.Many2many(comodel_name="ecole.cours",)
+
+

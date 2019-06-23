@@ -10,7 +10,20 @@
                         <group>
                             <field name="name"/>
                             <field name="code"/>
+                            <field name="departement_id"/>
                         </group>
+                        <notebook>
+                            <page string="les classes dispansées">
+                                <group>
+                                    <field name="classe_ids"/>
+                                </group>
+                            </page>
+                            <page string="Professeur en charge">
+                                <group>
+                                    <field name="professeur_ids"/>
+                                </group>
+                            </page>
+                        </notebook>
                     </sheet>
                 </form>
             </field>
