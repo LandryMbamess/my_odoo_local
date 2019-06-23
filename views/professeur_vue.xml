@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+      <record id="Vue_list_professeur" model="ir.ui.view">
+          <field name="name">Vue List professeur</field>
+          <field name="model">ecole.professeur</field>
+          <field name="arch" type="xml">
+              <tree string="">
+                  <field name="f_name"/>
+                  <field name="l_name"/>
+                  <field name="sex"/>
+                  <field name="cni"/>
+                  <field name="address"/>
+                  <field name="naissance"/>
+                  <field name="start_date"/>
+              </tree>
+          </field>
+      </record>
+
+        <record id="vue_aclendat_professeur" model="ir.ui.view">
+            <field name="name">Vue Calendrier</field>
+            <field name="model">ecole.professeur</field>
+            <field name="arch" type="xml">
+                <calendar string="Calendrier Contrat" date_start="start_date">
+                    <field name="f_name"/>
+                </calendar>
+
+            </field>
+        </record>
+
+       <record id="view_action_professeur" model="ir.actions.act_window">
+           <field name="name">Vue professeur</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">ecole.professeur</field>
+           <field name="view_mode">tree,form,calendar</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               nouveau professeur
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="administration_menu" name="Administration" parent="ecole.ecole_root" sequence=""/>
+        <menuitem id="professeur_action" name="Professeurs" parent="administration_menu" action="view_action_professeur"/>
+
+    </data>
+</odoo>

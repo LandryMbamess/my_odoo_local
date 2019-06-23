@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_list_etudiant" model="ir.ui.view">
+            <field name="name">Vue etudiant</field>
+            <field name="model">ecole.etudiant</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="f_name"/>
+                    <field name="l_name"/>
+                    <field name="sex"/>
+                    <field name="cni"/>
+                    <field name="address"/>
+                    <field name="naissance"/>
+                    <field name="inscription"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="vue_aclendat_etudiant" model="ir.ui.view">
+            <field name="name">Vue Calendrier</field>
+            <field name="model">ecole.etudiant</field>
+            <field name="arch" type="xml">
+                <calendar string="Calendrier Contrat" date_start="inscription">
+                    <field name="f_name"/>
+                </calendar>
+
+            </field>
+        </record>
+
+        <!--<record id="view_form_etudiant" model="ir.ui.view">
+            <field name="name">Formulaire etudiant</field>
+            <field name="model">ecole.etudiant</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+
+                        <field name="f_name"/>
+                        <field name="l_name"/>
+                        <field name="sex" widget="radio"/>
+                        <field name="cni"/>
+                        <field name="address"/>
+                        <field name="naissance"/>
+                        <field name="inscription"/>
+                        <field name="email"/>
+                        <field name="phone"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+-->
+        <record id="action_view_edutiant" model="ir.actions.act_window">
+            <field name="name">Fenêtre Etudiant</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ecole.etudiant</field>
+            <field name="view_mode">tree,form,calendar</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Vue de creation d'etudiant
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+
+        <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
+        <menuitem id="ecole_root" name="Ecole" />
+        <!-- This Menu Item Must have a parent -->
+        <menuitem id="etudiant_menu" name="Etudiant" parent="ecole_root" sequence=""/>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="etudian_action" name="Etudiants" parent="etudiant_menu" action="action_view_edutiant"/>
+
+
+    </data>
+</odoo>

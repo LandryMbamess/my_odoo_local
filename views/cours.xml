@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_form_cours" model="ir.ui.view">
+            <field name="name">Formulaire Cours</field>
+            <field name="model">ecole.cours</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_list_cours" model="ir.ui.view">
+            <field name="name">List cours</field>
+            <field name="model">ecole.cours</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+
+       <record id="view_cours" model="ir.actions.act_window">
+           <field name="name">Vue Cours</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">ecole.cours</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               creer des cours avec les code
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+
+        <menuitem id="cours_action" name="Cours" parent="ecole.etudiant_menu" action="view_cours"/>
+
+    </data>
+</odoo>
