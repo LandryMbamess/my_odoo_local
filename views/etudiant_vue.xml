@@ -33,20 +33,34 @@
             <field name="model">ecole.etudiant</field>
             <field name="arch" type="xml">
                 <form>
-                    <group>
-
-                        <field name="f_name"/>
-                        <field name="l_name"/>
-                        <field name="sex" widget="radio"/>
-                        <field name="cni"/>
-                        <field name="departement_id"/>
-                        <field name="classe_id"/>
-                        <field name="address"/>
-                        <field name="naissance"/>
-                        <field name="inscription"/>
-                        <field name="email"/>
-                        <field name="phone"/>
-                    </group>
+                    <header>
+                        <field name="state" widget="statusbar" nolabel="1"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="f_name"/>
+                                <field name="l_name"/>
+                                <field name="sex" widget="radio"/>
+                                <field name="cni"/>
+                                <field name="address"/>
+                            </group>
+                            <group>
+                                <field name="cni"/>
+                                <field name="classe_id"/>
+                                <field name="inscription"/>
+                                <field name="email"/>
+                                <field name="phone"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="liste de cours">
+                                <group>
+                                    <field name="cours_ids"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
                 </form>
             </field>
         </record>

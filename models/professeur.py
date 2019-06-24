@@ -7,8 +7,6 @@ class ProfesseurModel(models.Model):
     _name = 'ecole.professeur'
     _description = 'definition de la classe Professeur'
 
-    # name = fields.Char('name', required=True)*
-    # name = fields.Char(string="nom", required=False, )
     f_name = fields.Char('Nom')
     l_name = fields.Char('Prenom')
     sex = fields.Selection(string='Genre', selection=[('masculin', 'Masculin'), ('feminin', 'Feminin')], )
@@ -22,5 +20,14 @@ class ProfesseurModel(models.Model):
     departement_id = fields.Many2one(comodel_name="ecole.departement", string="Departement", )
     classe_ids = fields.Many2many(comodel_name="ecole.classe",)
     cours_ids = fields.Many2many(comodel_name="ecole.cours",)
+
+
+    @api.multi
+    def name_get(self):
+        result = []
+        for professeur in self:
+            nam = professeur.f_name + ' ' + professeur.l_name
+            result.append((professeur.id, nam))
+        return result
 
 
