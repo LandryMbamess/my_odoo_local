@@ -23,31 +23,57 @@
             <field name="model">ecole.professeur</field>
             <field name="arch" type="xml">
                 <form>
-                    <group>
 
-                        <field name="f_name"/>
-                        <field name="l_name"/>
-                        <field name="sex" widget="radio"/>
-                        <field name="cni"/>
-                        <field name="departement_id"/>
-                        <field name="address"/>
-                        <field name="naissance"/>
-                        <field name="start_date"/>
-                        <field name="email"/>
-                        <field name="phone"/>
-                    </group>
-                    <notebook>
-                        <page string="Liste des classes tenues">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                                <button name="send_mail"
+                                        type="object"
+                                        class="oe_stat_button"
+                                        icon="fa-envelope"
+                                        string="Envoyer un mail">
+                                </button>
+
+                                <button name="toggle_active"
+                                        type="object"
+                                        class="oe_stat_button"
+                                        icon="fa-archive">
+                                        <field name="active" widget="boolean_button" options='{"terminology": "archive"}'/>
+                                </button>
+                        </div>
+
+
+                        <group>
                             <group>
-                                <field name="classe_ids"/>
+                                <field name="f_name"/>
+                                <field name="l_name"/>
+                                <field name="sex" widget="radio"/>
+                                <field name="cni"/>
+
                             </group>
-                        </page>
-                        <page string="Liste des Cours dispensés">
                             <group>
-                                <field name="cours_ids"/>
+                                <field name="departement_id"/>
+                                <field name="address"/>
+                                <field name="naissance"/>
+                                <field name="start_date"/>
+                                <field name="email"/>
+                                <field name="phone"/>
+
                             </group>
-                        </page>
-                    </notebook>
+
+                        </group>
+                        <notebook>
+                            <page string="Liste des classes tenues">
+                                <group>
+                                    <field name="classe_ids"/>
+                                </group>
+                            </page>
+                            <page string="Liste des Cours dispensés">
+                                <group>
+                                    <field name="cours_ids"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
                 </form>
             </field>
         </record>

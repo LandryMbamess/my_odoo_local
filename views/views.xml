@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Inherit Form View to Modify it -->
+    <record id="view_inherit_form" model="ir.ui.view">
+        <field name="name">view.inherit.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='type']" position="before">
+                <!-- Add your fields or attributes here -->
+                <field name="age"/>
+            </xpath>
+            <xpath expr="//field[@name='age']" position="attributes">
+                <attribute name="required">1</attribute>
+<!--                <attribute name="readonly">1</attribute>-->
+            </xpath>
+
+                 <notebook position="before">
+<!--                     <page string="Information personnel">-->
+                         <group>
+
+                             <field name="description"/>
+                         </group>
+<!--                     </page>-->
+                 </notebook>
+                            <!-- Add your fields or attributes here -->
+
+        </field>
+    </record>
+
+    <data>
+        <record model="ir.actions.act_window" id="etudiant_list_action">
+            <field name="name">etudiant.list.action</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Create the first etudiant
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="main_etudiant_menu" name="Ecole"/>
+
+        <menuitem id="etudiant_menu" name="Personne" parent="main_etudiant_menu"/>
+
+        <menuitem id="etudiant_menu_view" name="Etudiant" parent="etudiant_menu" action="etudiant_list_action"/>
+
+
+    </data>
+
+
+</odoo>

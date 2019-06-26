@@ -29,6 +29,7 @@
         'views/departement.xml',
         'views/classe.xml',
         'views/cours.xml',
+        'data/template_mail.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
